@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}NexCart — AI Shopping{% endblock %}</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080818; --bg2: #0f0f23; --bg3: #141428;
+      --border: #1e1e3a; --border2: #2d2d5e;
+      --text: #e2e8f0; --muted: #6b7280; --soft: #9ca3af;
+      --accent: #7c3aed; --accent2: #6366f1; --accent3: #a855f7;
+      --green: #10b981; --red: #ef4444; --yellow: #f59e0b;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Inter', sans-serif; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    input, select { font-family: inherit; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideIn  { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes bounce   { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+    @keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    .fade-up   { animation: fadeUp .35s ease forwards; }
+    .slide-in  { animation: slideIn .3s ease forwards; }
+
+    /* ── Navbar ── */
+    nav.topnav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(8,8,24,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 62px;
+    }
+    .nav-logo { display:flex; align-items:center; gap:8px; font-weight:900; font-size:21px; }
+    .nav-logo span.gradient { background: linear-gradient(135deg,#818cf8,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-logo .badge { background:var(--accent); color:#fff; font-size:9px; padding:2px 6px; border-radius:20px; font-weight:700; }
+    .nav-links { display:flex; gap:2px; }
+    .nav-links a { color:var(--soft); font-size:13px; font-weight:500; padding:6px 12px; border-radius:8px; transition:all .15s; }
+    .nav-links a:hover { color:var(--text); background:rgba(255,255,255,.05); }
+    .nav-right { display:flex; align-items:center; gap:8px; }
+    .btn-cart { position:relative; background:var(--bg3); border:1px solid var(--border2); color:var(--text); padding:7px 14px; border-radius:9px; font-size:13px; font-weight:600; display:flex; align-items:center; gap:5px; transition:all .2s; }
+    .btn-cart:hover { border-color:var(--accent); }
+    .cart-badge { position:absolute; top:-7px; right:-7px; background:var(--accent); color:#fff; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; border:2px solid var(--bg); }
+
+    /* ── Product card ── */
+    .product-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius:16px;
+      overflow:hidden; transition:all .25s ease; display:flex; flex-direction:column;
+    }
+    .product-card:hover { transform:translateY(-4px); background:var(--bg3); }
+    .card-thumb {
+      height:148px; display:flex; align-items:center; justify-content:center;
+      font-size:58px; position:relative; flex-shrink:0;
+    }
+    .card-body { padding:12px 14px 14px; flex:1; display:flex; flex-direction:column; }
+    .card-sub { font-size:10px; font-weight:600; padding:2px 7px; border-radius:8px; display:inline-block; margin-bottom:6px; }
+    .card-name { font-weight:700; font-size:13.5px; color:var(--text); line-height:1.35; margin-bottom:4px; }
+    .card-desc { font-size:11.5px; color:var(--muted); line-height:1.45; margin-bottom:8px; flex:1; }
+    .card-stars { display:inline-flex; gap:1px; }
+    .star { font-size:11px; }
+    .card-rating-row { display:flex; align-items:center; gap:4px; margin-bottom:10px; font-size:11px; }
+    .card-price-row { display:flex; align-items:center; justify-content:space-between; }
+    .card-price { color:#818cf8; font-weight:800; font-size:19px; }
+    .card-old   { color:var(--border2); font-size:12px; margin-left:5px; text-decoration:line-through; }
+    .badge-discount { background:var(--accent); color:#fff; font-size:10px; padding:2px 7px; border-radius:10px; font-weight:700; }
+    .badge-stock    { background:var(--red);    color:#fff; font-size:10px; padding:2px 7px; border-radius:10px; font-weight:700; }
+    .badge-3d { background:rgba(99,102,241,.25); border:1px solid var(--accent2); color:#a5b4fc; font-size:9px; padding:2px 6px; border-radius:8px; font-weight:700; }
+    .btn-add { border:none; border-radius:9px; color:#fff; padding:7px 14px; font-size:12.5px; font-weight:700; transition:all .2s; cursor:pointer; }
+    .btn-add.added { background: linear-gradient(135deg,#059669,#047857) !important; }
+    .card-badges { position:absolute; top:10px; left:10px; display:flex; gap:5px; flex-wrap:wrap; }
+    .card-badge-3d { position:absolute; top:10px; right:10px; }
+
+    /* ── Buttons ── */
+    .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); border:none; border-radius:12px; color:#fff; padding:13px 26px; font-size:15px; font-weight:700; cursor:pointer; transition:all .2s; box-shadow:0 4px 20px rgba(124,58,237,.35); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 28px rgba(124,58,237,.5); }
+    .btn-outline { background:transparent; border:1px solid var(--border2); border-radius:12px; color:var(--text); padding:13px 26px; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s; }
+    .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* ── Toast notification ── */
+    #toast { position:fixed; top:76px; right:20px; z-index:9999; background:linear-gradient(135deg,#059669,#047857); color:#fff; padding:10px 16px; border-radius:12px; font-size:13px; font-weight:600; box-shadow:0 4px 20px rgba(5,150,105,.4); display:none; animation:fadeUp .25s ease; white-space:nowrap; }
+
+    /* ── Cart bar ── */
+    #cart-bar { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#1e1b4b,#312e81); border:1px solid #4338ca; border-radius:16px; padding:12px 24px; display:none; align-items:center; gap:16px; box-shadow:0 8px 32px rgba(99,102,241,.4); z-index:400; animation:fadeUp .3s ease; white-space:nowrap; }
+
+    /* ── Chat widget ── */
+    #chat-btn { position:fixed; bottom:24px; right:24px; z-index:500; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent3)); border:none; cursor:pointer; font-size:24px; box-shadow:0 4px 24px rgba(124,58,237,.5); display:flex; align-items:center; justify-content:center; transition:transform .2s; }
+    #chat-btn:hover { transform:scale(1.1); }
+    #chat-btn .online-dot { position:absolute; top:2px; right:2px; width:14px; height:14px; background:var(--green); border-radius:50%; border:2px solid var(--bg); }
+    #chat-panel { position:fixed; bottom:24px; right:24px; z-index:500; width:370px; height:570px; background:#0b0b1a; border:1px solid var(--border); border-radius:20px; display:none; flex-direction:column; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,.8); }
+    #chat-panel.open { display:flex; animation:slideIn .3s ease; }
+    .chat-header { padding:14px 16px; border-bottom:1px solid var(--border); background:linear-gradient(90deg,#0f0a2e,#1a0a3e); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+    .chat-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent3)); display:flex; align-items:center; justify-content:center; font-size:18px; position:relative; }
+    .chat-avatar .dot { position:absolute; bottom:0; right:0; width:10px; height:10px; background:var(--green); border-radius:50%; border:2px solid #0b0b1a; }
+    .chat-messages { flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px; }
+    .chat-msg { max-width:90%; border-radius:14px; padding:9px 13px; font-size:13px; line-height:1.5; animation:fadeUp .25s ease; }
+    .chat-msg.user { align-self:flex-end; background:linear-gradient(135deg,var(--accent),var(--accent2)); border-radius:14px 14px 3px 14px; }
+    .chat-msg.assistant { align-self:flex-start; background:#1a1a2e; border:1px solid var(--border2); border-radius:14px 14px 14px 3px; }
+    .chat-msg strong { color:#a5b4fc; }
+    .chat-products { display:flex; flex-direction:column; gap:8px; width:100%; }
+    .chat-product-card { display:flex; gap:10px; padding:10px 12px; background:var(--bg2); border:1px solid rgba(99,102,241,.2); border-radius:12px; cursor:pointer; transition:border-color .2s; }
+    .chat-product-card:hover { border-color:rgba(99,102,241,.5); }
+    .chat-product-thumb { width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+    .chat-quick { padding:0 12px 8px; display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0; }
+    .quick-btn { background:rgba(124,58,237,.12); border:1px solid rgba(124,58,237,.3); color:#a78bfa; border-radius:20px; padding:4px 10px; font-size:11px; cursor:pointer; font-weight:500; transition:all .15s; }
+    .quick-btn:hover { background:rgba(124,58,237,.25); }
+    .chat-input-row { padding:10px 12px 12px; border-top:1px solid var(--border); flex-shrink:0; }
+    .chat-input-wrap { display:flex; gap:8px; align-items:center; background:var(--bg2); border:1px solid var(--border2); border-radius:12px; padding:7px 10px; }
+    #chat-input { flex:1; background:transparent; border:none; color:var(--text); font-size:13px; outline:none; }
+    #chat-send { background:linear-gradient(135deg,var(--accent),var(--accent2)); border:none; border-radius:8px; color:#fff; width:30px; height:30px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; transition:all .2s; }
+    #chat-send:disabled { background:var(--bg3); cursor:not-allowed; }
+    .typing-dots { display:flex; gap:4px; padding:10px 14px; background:#1a1a2e; border:1px solid var(--border2); border-radius:12px; align-self:flex-start; }
+    .typing-dot { width:7px; height:7px; border-radius:50%; background:var(--accent2); animation:bounce .7s ease infinite; }
+    .typing-dot:nth-child(2) { animation-delay:.15s; }
+    .typing-dot:nth-child(3) { animation-delay:.3s; }
+
+    /* ── Grid ── */
+    .products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:14px; }
+    .section { max-width:1200px; margin:0 auto; padding:0 24px; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="topnav">
+  <a href="/" class="nav-logo">
+    <span>🛒</span>
+    <span class="gradient">NexCart</span>
+    <span class="badge">AI</span>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/catalog">Shop</a>
+    <a href="/catalog?category=Electronics">Electronics</a>
+    <a href="/catalog?category=Fashion">Fashion</a>
+    <a href="/catalog?category=Furniture">Furniture</a>
+  </div>
+  <div class="nav-right">
+    <a href="/catalog" style="color:var(--soft);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:9px;font-weight:500;">🔍 Search</a>
+    <button class="btn-cart" onclick="location.href='/catalog'">
+      🛒 Cart
+      <span class="cart-badge" id="nav-cart-count" style="display:none">0</span>
+    </button>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- Cart bar -->
+<div id="cart-bar">
+  <span style="font-size:20px">🛒</span>
+  <div>
+    <p style="font-size:11px;color:#a5b4fc;font-weight:600" id="cart-bar-label">0 items in cart</p>
+    <p style="font-size:16px;color:#fff;font-weight:800" id="cart-bar-total">$0.00</p>
+  </div>
+  <button class="btn-primary" style="padding:8px 18px;font-size:13px" onclick="location.href='/checkout'">Checkout →</button>
+</div>
+
+<!-- AI Chat button -->
+<button id="chat-btn" onclick="openChat()" title="Open AI Shopping Assistant">
+  🤖<div class="online-dot"></div>
+</button>
+
+<!-- Chat panel -->
+<div id="chat-panel">
+  <div class="chat-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="chat-avatar">🤖<div class="dot"></div></div>
+      <div>
+        <p style="font-weight:700;font-size:14px;color:var(--text)">NexCart AI</p>
+        <p style="font-size:10px;color:var(--green)" id="chat-status">Online · Powered by Claude</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px">
+      <button onclick="clearChat()" title="Clear chat" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px 6px;border-radius:6px">🔄</button>
+      <button onclick="closeChat()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;padding:4px 6px;border-radius:6px">✕</button>
+    </div>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-quick" id="quick-prompts">
+    <button class="quick-btn" onclick="sendQuick('Gaming laptops under $1200')">🎮 Gaming laptops</button>
+    <button class="quick-btn" onclick="sendQuick('Gift for a coffee lover')">🎁 Coffee gifts</button>
+    <button class="quick-btn" onclick="sendQuick('Best wireless headphones')">🎧 Headphones</button>
+    <button class="quick-btn" onclick="sendQuick('Running shoes under $200')">👟 Running shoes</button>
+  </div>
+  <div class="chat-input-row">
+    <div class="chat-input-wrap">
+      <input id="chat-input" placeholder="Ask about any product..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button id="chat-send" onclick="sendChat()">↑</button>
+    </div>
+    <p style="text-align:center;color:#374151;font-size:10px;margin-top:6px">AI responses powered by Claude</p>
+  </div>
+</div>
+
+<script>
+// ── Cart state ────────────────────────────────────────────────────────────────
+let cart = JSON.parse(localStorage.getItem('nexcart_cart') || '[]');
+
+function saveCart() {
+  localStorage.setItem('nexcart_cart', JSON.stringify(cart));
+  updateCartUI();
+}
+
+function addToCart(id, name, price, sale, emoji) {
+  const existing = cart.find(x => x.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ id, name, price, sale, emoji, qty: 1 });
+  saveCart();
+  showToast('✓ ' + name.substring(0, 30) + '... added to cart!');
+}
+
+function updateCartUI() {
+  const count = cart.reduce((s, p) => s + p.qty, 0);
+  const total = cart.reduce((s, p) => s + p.sale * p.qty, 0);
+  const badge = document.getElementById('nav-cart-count');
+  if (badge) { badge.textContent = count > 9 ? '9+' : count; badge.style.display = count > 0 ? 'flex' : 'none'; }
+  const bar = document.getElementById('cart-bar');
+  if (bar) {
+    if (count > 0) {
+      bar.style.display = 'flex';
+      document.getElementById('cart-bar-label').textContent = count + ' item' + (count > 1 ? 's' : '') + ' in cart';
+      document.getElementById('cart-bar-total').textContent = '$' + total.toFixed(2);
+    } else {
+      bar.style.display = 'none';
+    }
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2500);
+}
+
+updateCartUI();
+
+// ── Chat ──────────────────────────────────────────────────────────────────────
+let chatOpen = false;
+let chatHistory = [];
+const SESSION_ID = 'sess_' + Math.random().toString(36).slice(2, 10);
+
+function openChat() {
+  document.getElementById('chat-btn').style.display = 'none';
+  document.getElementById('chat-panel').classList.add('open');
+  chatOpen = true;
+  if (document.getElementById('chat-messages').children.length === 0) addBotMessage(
+    "👋 Hi! I\'m <strong>NexCart AI</strong>, your personal shopping assistant.<br><br>I can search products, suggest gifts, compare options, and more. What are you looking for?",
+    []
+  );
+  document.getElementById('chat-input').focus();
+}
+
+function closeChat() {
+  document.getElementById('chat-panel').classList.remove('open');
+  document.getElementById('chat-btn').style.display = 'flex';
+  chatOpen = false;
+}
+
+function clearChat() {
+  document.getElementById('chat-messages').innerHTML = '';
+  chatHistory = [];
+  addBotMessage("Chat cleared! How can I help you find something great today?", []);
+}
+
+function addUserMessage(text) {
+  const el = document.createElement('div');
+  el.className = 'chat-msg user'; el.innerHTML = escapeHtml(text);
+  document.getElementById('chat-messages').appendChild(el);
+  scrollChat();
+  document.getElementById('quick-prompts').style.display = 'none';
+}
+
+function addBotMessage(text, products) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;flex-direction:column;align-items:flex-start;gap:6px;';
+
+  const el = document.createElement('div');
+  el.className = 'chat-msg assistant';
+  el.innerHTML = formatMsg(text);
+  wrap.appendChild(el);
+
+  if (products && products.length > 0) {
+    const pc = document.createElement('div');
+    pc.className = 'chat-products';
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'chat-product-card';
+      card.onclick = () => location.href = '/product/' + p.id;
+      const catColors = {'Electronics':'#6366f1','Fashion':'#ec4899','Furniture':'#f59e0b','Watches':'#10b981','Home Appliances':'#3b82f6','Beauty':'#a855f7'};
+      const color = catColors[p.category] || '#6366f1';
+      const disc = p.discount ? `<span style="background:#7c3aed;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;font-weight:700">-${p.discount}%</span>` : '';
+      card.innerHTML = `
+        <div class="chat-product-thumb" style="background:linear-gradient(135deg,${color}20,${color}10)">${p.emoji || '📦'}</div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;justify-content:space-between;gap:4px">
+            <p style="margin:0;font-size:12.5px;font-weight:700;color:#e2e8f0;line-height:1.3">${escapeHtml(p.name)}</p>${disc}
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:5px">
+            <div>
+              <span style="color:#818cf8;font-weight:800;font-size:14px">$${p.sale}</span>
+              ${p.price > p.sale ? `<span style="color:#4b5563;font-size:10px;margin-left:4px;text-decoration:line-through">$${p.price}</span>` : ''}
+              <span style="margin-left:6px;color:#f59e0b;font-size:10px">★ ${p.rating}</span>
+            </div>
+            <button onclick="event.stopPropagation();addToCartFromChat('${p.id}','${escapeJs(p.name)}',${p.price},${p.sale},'${p.emoji || '📦'}')"
+              style="background:linear-gradient(135deg,${color},#6366f1);border:none;border-radius:7px;color:#fff;padding:4px 10px;font-size:11px;cursor:pointer;font-weight:700">
+              + Cart
+            </button>
+          </div>
+        </div>`;
+      pc.appendChild(card);
+    });
+    wrap.appendChild(pc);
+  }
+  document.getElementById('chat-messages').appendChild(wrap);
+  scrollChat();
+}
+
+function addTyping() {
+  const el = document.createElement('div');
+  el.className = 'typing-dots'; el.id = 'typing';
+  el.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  document.getElementById('chat-messages').appendChild(el);
+  scrollChat();
+}
+
+function removeTyping() { const t = document.getElementById('typing'); if (t) t.remove(); }
+function scrollChat() { const m = document.getElementById('chat-messages'); m.scrollTop = m.scrollHeight; }
+
+function formatMsg(text) {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+}
+function escapeHtml(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escapeJs(t)   { return t.replace(/'/g,"\\'").replace(/"/g,'\\"'); }
+
+function addToCartFromChat(id, name, price, sale, emoji) {
+  addToCart(id, name, price, sale, emoji);
+}
+
+function sendQuick(msg) { document.getElementById('chat-input').value = msg; sendChat(); }
+
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  document.getElementById('chat-send').disabled = true;
+
+  addUserMessage(msg);
+  chatHistory.push({ role: 'user', content: msg });
+  addTyping();
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, session_id: SESSION_ID, history: chatHistory.slice(-10) }),
+    });
+    const data = await res.json();
+    removeTyping();
+    chatHistory.push({ role: 'assistant', content: data.message });
+    addBotMessage(data.message, data.products || []);
+  } catch (e) {
+    removeTyping();
+    addBotMessage('Sorry, I had trouble connecting. Please try again!', []);
+  }
+  document.getElementById('chat-send').disabled = false;
+  input.focus();
+}
+</script>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+{% block scripts %}{% endblock %}
+<footer style="background:#0a0a1a;border-top:1px solid #1e1e3a;padding:32px 24px;margin-top:48px;text-align:center"><div style="max-width:1200px;margin:0 auto"><p style="font-size:20px;font-weight:900;color:#818cf8">NexCart</p><p style="color:#6b7280;font-size:13px;margin:6px 0">Beyond Shopping. An Experience.</p><p style="color:#9ca3af;font-size:13px;margin:8px 0">Email: gyanshukumarbusiness@gmail.com</p><a href="https://www.linkedin.com/in/gyanshu-kumar-14b35a3b4" target="_blank" style="color:#818cf8;font-size:13px;font-weight:600">LinkedIn: Gyanshu Kumar</a><p style="color:#374151;font-size:12px;margin-top:12px">2026 NexCart. Made by Gyanshu Kumar</p></div></footer></body>
+</html>

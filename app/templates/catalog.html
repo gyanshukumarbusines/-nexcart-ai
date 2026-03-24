@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Shop All Products — NexCart{% endblock %}
+
+{% block content %}
+<div class="section" style="padding-top:28px;padding-bottom:52px">
+
+  <!-- Header -->
+  <div style="margin-bottom:24px">
+    <h1 style="font-size:28px;font-weight:800;margin:0 0 4px">
+      {% if active_category and active_category != 'All' %}{{ active_category }}{% else %}🛍️ All Products{% endif %}
+    </h1>
+    <p style="color:var(--muted);font-size:14px;margin:0">{{ products|length }} product{{ 's' if products|length != 1 else '' }} found</p>
+  </div>
+
+  <!-- Search + sort bar -->
+  <form method="GET" action="/catalog" style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+    <div style="flex:1;min-width:200px;position:relative">
+      <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)">🔍</span>
+      <input name="q" value="{{ query }}" placeholder="Search products..."
+        style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 14px 10px 36px;color:var(--text);font-size:14px;outline:none;box-sizing:border-box">
+    </div>
+    <select name="sort" onchange="this.form.submit()"
+      style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px 14px;font-size:13px;outline:none;cursor:pointer">
+      <option value="featured">⭐ Featured</option>
+      <option value="rating">🏆 Top Rated</option>
+      <option value="price_asc">💰 Price: Low → High</option>
+      <option value="price_desc">💎 Price: High → Low</option>
+    </select>
+    <button type="submit" class="btn-primary" style="padding:10px 20px;font-size:13px">Search</button>
+  </form>
+
+  <div style="display:flex;gap:20px;align-items:flex-start">
+    <!-- Sidebar -->
+    <aside style="width:190px;flex-shrink:0">
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px">
+        <h3 style="margin:0 0 12px;font-size:12px;font-weight:700;color:var(--soft);text-transform:uppercase;letter-spacing:1px">Category</h3>
+        {% for cat in categories %}
+        <a href="/catalog?category={{ cat }}" style="display:block;text-decoration:none;
+          padding:8px 10px;font-size:13px;border-radius:0 6px 6px 0;margin-bottom:2px;font-weight:{{ '600' if cat == active_category else '400' }};
+          color:{{ '#a78bfa' if cat == active_category else '#9ca3af' }};
+          background:{{ 'rgba(124,58,237,.15)' if cat == active_category else 'transparent' }};
+          border-left:3px solid {{ '#7c3aed' if cat == active_category else 'transparent' }};transition:all .15s"
+          onmouseover="if('{{ cat }}'!='{{ active_category }}')this.style.color='#e2e8f0'"
+          onmouseout="if('{{ cat }}'!='{{ active_category }}')this.style.color='#9ca3af'">
+          {{ cat }}
+        </a>
+        {% endfor %}
+      </div>
+    </aside>
+
+    <!-- Products grid -->
+    <div style="flex:1">
+      {% if products %}
+      <div class="products-grid">
+        {% for p in products %}
+        {% set color = {'Electronics':'#6366f1','Fashion':'#ec4899','Furniture':'#f59e0b','Watches':'#10b981','Home Appliances':'#3b82f6','Beauty':'#a855f7'}.get(p.category,'#6366f1') %}
+        {% set emojis = {'Laptops':'💻','Smartphones':'📱','Gaming Accessories':'🎮','Shoes':'👟','Living Room':'🛋️','Lighting':'💡','Luxury Watches':'⌚','Smartwatches':'⌚','Air Treatment':'💨','Kitchen':'☕','Skincare':'🧴','Makeup':'💄','Fragrance':'🌹','Office':'🖥️','Personal Transport':'🛹'} %}
+        {% set emoji = emojis.get(p.sub, '📦') %}
+        {% set savings = p.price - p.sale %}
+        {% set discount = ((savings / p.price) * 100) | round | int %}
+        <div class="product-card">
+          <a href="/product/{{ p.id }}" style="display:block">
+            <div class="card-thumb" style="background:linear-gradient(135deg,{{ color }}12,{{ color }}06);border-bottom:1px solid {{ color }}15">
+              {% if p.image %}
+              <img src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span style="display:none;font-size:2.5rem;align-items:center;justify-content:center;width:100%;height:100%">{{ emoji }}</span>
+              {% else %}
+              {{ emoji }}
+              {% endif %}
+              <div class="card-badges">
+                {% if discount > 0 %}<span class="badge-discount">-{{ discount }}%</span>{% endif %}
+                {% if p.stock < 30 %}<span class="badge-stock">Low Stock</span>{% endif %}
+              </div>
+              <div class="card-badge-3d"><span class="badge-3d">3D·AR</span></div>
+            </div>
+          </a>
+          <div class="card-body">
+            <span class="card-sub" style="color:{{ color }};background:{{ color }}18">{{ p.sub or p.category }}</span>
+            <a href="/product/{{ p.id }}"><p class="card-name">{{ p.name }}</p></a>
+            <p class="card-desc">{{ p.desc[:70] }}...</p>
+            <div class="card-rating-row">
+              <span class="card-stars">
+                {% for i in range(1,6) %}<span class="star" style="color:{{ '#f59e0b' if i <= p.rating|round else '#374151' }}">★</span>{% endfor %}
+              </span>
+              <span style="color:#8b5cf6;font-weight:600;font-size:12px">{{ p.rating }}</span>
+              <span style="color:#4b5563">({{ "{:,}".format(p.reviews) }})</span>
+            </div>
+            <div class="card-price-row">
+              <div>
+                <span class="card-price">${{ p.sale }}</span>
+                {% if savings > 0 %}<span class="card-old">${{ p.price }}</span>{% endif %}
+              </div>
+              <button class="btn-add" id="add-{{ p.id }}"
+                style="background:linear-gradient(135deg,{{ color }},#6366f1)"
+                onclick="handleAdd('{{ p.id }}','{{ p.name | replace("'","") }}',{{ p.price }},{{ p.sale }},'{{ emoji }}')">
+                + Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div style="text-align:center;padding:80px 20px;color:var(--muted)">
+        <p style="font-size:48px;margin:0 0 12px">🔍</p>
+        <p style="font-size:18px;font-weight:600;color:var(--soft)">No products found</p>
+        <p style="font-size:14px">Try different keywords or browse all categories</p>
+        <a href="/catalog" class="btn-primary" style="display:inline-block;margin-top:16px;text-decoration:none">Clear Filters</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function handleAdd(id, name, price, sale, emoji) {
+  const btn = document.getElementById('add-' + id);
+  addToCart(id, name, price, sale, emoji);
+  btn.textContent = '✓ Added!';
+  btn.classList.add('added');
+  setTimeout(() => { btn.textContent = '+ Cart'; btn.classList.remove('added'); }, 2000);
+}
+</script>
+{% endblock %}

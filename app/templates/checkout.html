@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Checkout — NexCart{% endblock %}
+{% block content %}
+<div style="max-width:900px;margin:40px auto;padding:0 20px">
+  <h1 style="color:#fff;margin-bottom:8px">🛒 Checkout</h1>
+  <p style="color:#94a3b8;margin-bottom:32px">Complete your purchase securely with Stripe</p>
+
+  <div style="display:grid;grid-template-columns:1fr 400px;gap:32px">
+    <!-- Left: Payment Form -->
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:16px;padding:32px">
+      <h2 style="color:#fff;font-size:18px;margin-bottom:24px">💳 Payment Details</h2>
+      
+      <div style="margin-bottom:20px">
+        <label style="color:#94a3b8;font-size:13px;display:block;margin-bottom:8px">Full Name</label>
+        <input id="name" type="text" placeholder="John Doe"
+          style="width:100%;padding:12px 16px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;box-sizing:border-box">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label style="color:#94a3b8;font-size:13px;display:block;margin-bottom:8px">Email</label>
+        <input id="email" type="email" placeholder="john@example.com"
+          style="width:100%;padding:12px 16px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#fff;font-size:14px;box-sizing:border-box">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label style="color:#94a3b8;font-size:13px;display:block;margin-bottom:8px">Card Details</label>
+        <div id="card-element" style="padding:14px 16px;background:#0f172a;border:1px solid #334155;border-radius:8px"></div>
+        <div id="card-errors" style="color:#f87171;font-size:13px;margin-top:8px"></div>
+      </div>
+
+      <button id="pay-btn" onclick="handlePayment()"
+        style="width:100%;padding:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:10px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px">
+        🔒 Pay Now
+      </button>
+
+      <p style="color:#475569;font-size:12px;text-align:center;margin-top:16px">
+        🔒 Secured by Stripe. Test card: 4242 4242 4242 4242
+      </p>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:16px;padding:24px;margin-bottom:16px">
+        <h2 style="color:#fff;font-size:16px;margin-bottom:20px">📦 Order Summary</h2>
+        <div id="order-items"></div>
+        <div style="border-top:1px solid #334155;margin-top:16px;padding-top:16px">
+          <div style="display:flex;justify-content:space-between;color:#94a3b8;margin-bottom:8px">
+            <span>Subtotal</span><span id="subtotal">$0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;color:#94a3b8;margin-bottom:8px">
+            <span>Shipping</span><span style="color:#10b981">FREE</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;color:#fff;font-weight:700;font-size:18px;margin-top:12px">
+            <span>Total</span><span id="total">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#0f3b2d;border:1px solid #10b981;border-radius:12px;padding:16px">
+        <p style="color:#10b981;font-size:13px;margin:0">✅ Free shipping on all orders<br>✅ 30-day return policy<br>✅ Secure SSL checkout</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const stripe = Stripe('{{ stripe_public_key }}');
+const elements = stripe.elements();
+const card = elements.create('card', {
+  style: {
+    base: { color: '#fff', fontFamily: 'system-ui', fontSize: '16px', '::placeholder': { color: '#64748b' } },
+    invalid: { color: '#f87171' }
+  }
+});
+card.mount('#card-element');
+card.on('change', e => {
+  document.getElementById('card-errors').textContent = e.error ? e.error.message : '';
+});
+
+// Load cart
+const cart = JSON.parse(localStorage.getItem('nexcart_cart') || '[]');
+let total = 0;
+const itemsHtml = cart.map(item => {
+  const price = item.sale || item.price;
+  total += price * (item.qty || 1);
+  return `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div>
+      <p style="color:#fff;font-size:14px;margin:0">${item.name}</p>
+      <p style="color:#64748b;font-size:12px;margin:0">Qty: ${item.qty || 1}</p>
+    </div>
+    <span style="color:#a5b4fc;font-weight:600">$${(price*(item.qty||1)).toFixed(2)}</span>
+  </div>`;
+}).join('');
+
+document.getElementById('order-items').innerHTML = itemsHtml || '<p style="color:#64748b">No items in cart</p>';
+document.getElementById('subtotal').textContent = '$' + total.toFixed(2);
+document.getElementById('total').textContent = '$' + total.toFixed(2);
+
+async function handlePayment() {
+  const btn = document.getElementById('pay-btn');
+  btn.textContent = '⏳ Processing...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/create-payment-intent', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({amount: total})
+    });
+    const data = await res.json();
+    if (data.error) { alert('Error: ' + data.error); btn.textContent = '🔒 Pay Now'; btn.disabled = false; return; }
+
+    const result = await stripe.confirmCardPayment(data.clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value
+        }
+      }
+    });
+
+    if (result.error) {
+      document.getElementById('card-errors').textContent = result.error.message;
+      btn.textContent = '🔒 Pay Now';
+      btn.disabled = false;
+    } else if (result.paymentIntent.status === 'succeeded') {
+      localStorage.removeItem('nexcart_cart');
+      window.location.href = '/order-success';
+    }
+  } catch(e) {
+    alert('Error: ' + e.message);
+    btn.textContent = '🔒 Pay Now';
+    btn.disabled = false;
+  }
+}
+</script>
+{% endblock %}

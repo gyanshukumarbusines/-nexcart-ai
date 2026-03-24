@@ -1,0 +1,1259 @@
+[
+  {
+    "productId": "P1001",
+    "glb_url": "/static/models/laptop1.glb",
+    "category": "Electronics",
+    "subcategory": "Laptops",
+    "price": 1299,
+    "discountPrice": 1099,
+    "rating": 4.7,
+    "reviewCount": 312,
+    "stock": 45,
+    "description": "Unleash maximum performance with the Apex Gaming Laptop Pro X. Equipped with an Intel Core i9-14900HX processor, NVIDIA RTX 4080 GPU, 32GB DDR5 RAM, and a blazing-fast 2TB NVMe SSD. The 17.3-inch QHD 240Hz display with 3ms response time ensures buttery-smooth gameplay. Features per-key RGB keyboard, advanced thermal cooling with dual fans, Wi-Fi 6E, Thunderbolt 4, and a 99Wh battery for extended sessions.",
+    "images": [
+      "/images/products/laptop-1-main.webp",
+      "/images/products/laptop-1-side.webp",
+      "/images/products/laptop-1-keyboard.webp",
+      "/images/products/laptop-1-display.webp"
+    ],
+    "model3D": "/models/products/gaming-laptop.glb",
+    "colors": [
+      "Midnight Black",
+      "Space Gray"
+    ],
+    "specs": {
+      "cpu": "Intel Core i9-14900HX",
+      "gpu": "NVIDIA RTX 4080 16GB",
+      "ram": "32GB DDR5 5600MHz",
+      "storage": "2TB NVMe PCIe 5.0 SSD",
+      "display": "17.3\" QHD 240Hz IPS",
+      "battery": "99Wh",
+      "weight": "2.8kg",
+      "os": "Windows 11 Home"
+    },
+    "tags": [
+      "gaming",
+      "laptop",
+      "high-performance",
+      "rtx",
+      "intel",
+      "rgb",
+      "portable"
+    ],
+    "aiRecommendationTags": [
+      "gaming",
+      "performance",
+      "laptop",
+      "esports",
+      "content-creation"
+    ],
+    "embeddingHints": "gaming laptop high performance RTX graphics rendering esports streaming",
+    "reviews": [
+      {
+        "user": "GamerXPro",
+        "rating": 5,
+        "comment": "Runs every game maxed out at 4K. Absolutely worth every penny.",
+        "date": "2025-03-15"
+      },
+      {
+        "user": "TechReviewer99",
+        "rating": 4,
+        "comment": "Great performance, runs a bit warm under full load but thermals are manageable.",
+        "date": "2025-02-28"
+      },
+      {
+        "user": "StreamKing",
+        "rating": 5,
+        "comment": "Stream, game, and edit videos simultaneously with zero lag. This laptop is a beast.",
+        "date": "2025-01-10"
+      }
+    ],
+    "relatedProductIds": [
+      "P1002",
+      "P1003",
+      "P1009"
+    ],
+    "image": "/static/images/laptop1.jpg"
+   },
+  {
+    "productId": "P1002",
+    "glb_url": "/static/models/laptop2.glb",
+    "category": "Electronics",
+    "subcategory": "Laptops",
+    "price": 949,
+    "discountPrice": 849,
+    "rating": 4.5,
+    "reviewCount": 187,
+    "stock": 72,
+    "description": "The UltraBook Slim 14 Pro is the perfect blend of power and portability. Powered by AMD Ryzen 7 7840U with Radeon 780M integrated graphics, 16GB LPDDR5 RAM, and a 1TB SSD, it handles creative work, coding, and multitasking effortlessly. The 14-inch OLED display delivers vivid colors and deep blacks. At just 1.2kg and 13mm thin, it's the ideal travel companion with 20-hour battery life.",
+    "images": [
+      "/images/products/ultrabook-main.webp",
+      "/images/products/ultrabook-open.webp",
+      "/images/products/ultrabook-ports.webp"
+    ],
+    "model3D": "/models/products/ultrabook.glb",
+    "colors": [
+      "Silver",
+      "Rose Gold",
+      "Midnight Blue"
+    ],
+    "specs": {
+      "cpu": "AMD Ryzen 7 7840U",
+      "gpu": "AMD Radeon 780M",
+      "ram": "16GB LPDDR5",
+      "storage": "1TB NVMe SSD",
+      "display": "14\" OLED 2.8K 90Hz",
+      "battery": "72Wh (20hr)",
+      "weight": "1.2kg",
+      "os": "Windows 11 Pro"
+    },
+    "tags": [
+      "ultrabook",
+      "laptop",
+      "thin",
+      "lightweight",
+      "oled",
+      "travel",
+      "business"
+    ],
+    "aiRecommendationTags": [
+      "productivity",
+      "travel",
+      "business",
+      "ultrabook",
+      "portable"
+    ],
+    "embeddingHints": "ultrabook slim portable business laptop lightweight OLED display long battery",
+    "reviews": [
+      {
+        "user": "DigitalNomad88",
+        "rating": 5,
+        "comment": "Best laptop I've owned. Lightweight, powerful, and the OLED screen is gorgeous.",
+        "date": "2025-04-01"
+      },
+      {
+        "user": "RemoteWorker",
+        "rating": 4,
+        "comment": "Perfect for work trips. Battery easily lasts a full day. Would love a bigger screen option.",
+        "date": "2025-03-18"
+      }
+    ],
+    "relatedProductIds": [
+      "P1001",
+      "P1003"
+    ],
+    "image": "/static/images/laptop2.jpg"
+  },
+  {
+    "productId": "P1003",
+    "glb_url": "/static/models/smartphone2.glb",
+    "category": "Electronics",
+    "subcategory": "Smartphones",
+    "price": 1099,
+    "discountPrice": 999,
+    "rating": 4.8,
+    "reviewCount": 562,
+    "stock": 120,
+    "description": "The NexPhone Ultra 15 redefines mobile excellence. Featuring a Snapdragon 8 Gen 3 chip, 12GB RAM, 256GB UFS 4.0 storage, and a 6.7-inch Dynamic AMOLED 120Hz ProMotion display with 2600 nits peak brightness. The triple camera system includes a 200MP main sensor, 50MP ultrawide, and 10x periscope telephoto. 5000mAh battery with 100W wired and 50W wireless charging.",
+    "images": [
+      "/images/products/phone-1-main.webp",
+      "/images/products/phone-1-camera.webp",
+      "/images/products/phone-1-side.webp",
+      "/images/products/phone-1-back.webp"
+    ],
+    "model3D": "/models/products/smartphone.glb",
+    "colors": [
+      "Phantom Black",
+      "Aurora Green",
+      "Pearl White",
+      "Titanium Gold"
+    ],
+    "specs": {
+      "chip": "Snapdragon 8 Gen 3",
+      "ram": "12GB LPDDR5X",
+      "storage": "256GB UFS 4.0",
+      "display": "6.7\" Dynamic AMOLED 120Hz",
+      "mainCamera": "200MP f/1.7 OIS",
+      "battery": "5000mAh 100W charging",
+      "os": "Android 15",
+      "5g": true
+    },
+    "tags": [
+      "smartphone",
+      "5g",
+      "flagship",
+      "camera",
+      "amoled",
+      "fast-charging"
+    ],
+    "aiRecommendationTags": [
+      "flagship",
+      "photography",
+      "smartphone",
+      "performance",
+      "5G"
+    ],
+    "embeddingHints": "flagship smartphone 5G camera AMOLED display fast charging high performance",
+    "reviews": [
+      {
+        "user": "PhotoPro2025",
+        "rating": 5,
+        "comment": "The 200MP camera is absolutely insane. Night shots look better than my DSLR.",
+        "date": "2025-04-10"
+      },
+      {
+        "user": "TechEnthusiast",
+        "rating": 5,
+        "comment": "Fastest phone I've used. Screen is stunning. 100W charging in 20 minutes is magic.",
+        "date": "2025-03-22"
+      }
+    ],
+    "relatedProductIds": [
+      "P1004",
+      "P1010"
+    ],
+    "image": "/static/images/smartphone2.jpg"
+  },
+  {
+    "productId": "P1004",
+    "glb_url": "/static/models/smartphone1.glb",
+    "category": "Electronics",
+    "subcategory": "Smartphones",
+    "price": 299,
+    "discountPrice": 249,
+    "rating": 4.3,
+    "reviewCount": 891,
+    "stock": 340,
+    "description": "Great performance without breaking the bank. The BudgetPro X12 features a MediaTek Dimensity 900 chip, 8GB RAM, 128GB storage, and a 6.5-inch IPS LCD with 90Hz refresh rate. Triple camera with 64MP main shooter, 4500mAh battery with 33W charging, and a headphone jack for audiophiles. IP53 splash resistance included.",
+    "images": [
+      "/images/products/budget-phone-main.webp",
+      "/images/products/budget-phone-back.webp",
+      "/images/products/budget-phone-side.webp"
+    ],
+    "model3D": "/models/products/budget-smartphone.glb",
+    "colors": [
+      "Sky Blue",
+      "Graphite Black",
+      "Mint Green"
+    ],
+    "specs": {
+      "chip": "MediaTek Dimensity 900",
+      "ram": "8GB",
+      "storage": "128GB",
+      "display": "6.5\" IPS 90Hz",
+      "mainCamera": "64MP",
+      "battery": "4500mAh 33W",
+      "os": "Android 14"
+    },
+    "tags": [
+      "smartphone",
+      "budget",
+      "affordable",
+      "value",
+      "android"
+    ],
+    "aiRecommendationTags": [
+      "budget",
+      "value",
+      "smartphone",
+      "first-phone",
+      "affordable"
+    ],
+    "embeddingHints": "budget affordable smartphone great value mid-range android under $300",
+    "reviews": [
+      {
+        "user": "ValueHunter",
+        "rating": 4,
+        "comment": "Amazing value for the price. Battery lasts two days with moderate use.",
+        "date": "2025-02-15"
+      }
+    ],
+    "relatedProductIds": [
+      "P1003",
+      "P1010"
+    ],
+    "image": "/static/images/smartphone1.jpg"
+  },
+  {
+    "productId": "P1005",
+    "glb_url": "/static/models/shoe1.glb",
+    "category": "Fashion",
+    "subcategory": "Shoes",
+    "price": 189,
+    "discountPrice": 149,
+    "rating": 4.6,
+    "reviewCount": 423,
+    "stock": 215,
+    "description": "Engineered for performance runners and casual athletes, the CloudStep Air features a proprietary CloudFoam midsole with 40% energy return, breathable Flyknit upper, carbon fiber plate for explosive propulsion, and an outsole with 3D-printed traction pods. Ideal for road running, intervals, and long-distance training. Available in half sizes.",
+    "images": [
+      "/images/products/running-shoes-main.webp",
+      "/images/products/running-shoes-side.webp",
+      "/images/products/running-shoes-sole.webp",
+      "/images/products/running-shoes-detail.webp"
+    ],
+    "model3D": "/models/products/running-shoes.glb",
+    "colors": [
+      "Electric Blue/White",
+      "Neon Coral/Black",
+      "All White",
+      "Stealth Black"
+    ],
+    "sizes": [
+      "US 6",
+      "US 7",
+      "US 8",
+      "US 9",
+      "US 10",
+      "US 11",
+      "US 12",
+      "US 13"
+    ],
+    "tags": [
+      "running",
+      "shoes",
+      "sports",
+      "athletic",
+      "carbon-plate",
+      "marathon"
+    ],
+    "aiRecommendationTags": [
+      "running",
+      "fitness",
+      "sports",
+      "shoes",
+      "athletic",
+      "marathon"
+    ],
+    "embeddingHints": "running shoes athletic sports performance carbon plate marathon training",
+    "reviews": [
+      {
+        "user": "MarathonMike",
+        "rating": 5,
+        "comment": "PR'd my half marathon by 4 minutes. The carbon plate is a game changer.",
+        "date": "2025-03-30"
+      },
+      {
+        "user": "CasualRunner",
+        "rating": 4,
+        "comment": "So comfortable for daily runs. Cloud foam feels like stepping on pillows.",
+        "date": "2025-03-01"
+      }
+    ],
+    "relatedProductIds": [
+      "P1006",
+      "P1007"
+    ],
+    "image": "/static/images/shoe1.jpg"
+  },
+  {
+    "productId": "P1006",
+    "glb_url": "/static/models/shoe2.glb",
+    "category": "Fashion",
+    "subcategory": "Shoes",
+    "price": 279,
+    "discountPrice": 229,
+    "rating": 4.4,
+    "reviewCount": 198,
+    "stock": 88,
+    "description": "Where street style meets luxury craftsmanship. The LuxStreet sneaker features full-grain Italian leather upper, hand-stitched detailing, premium memory foam insole, and a vulcanized rubber outsole. Limited colorways designed in collaboration with emerging fashion artists. A wardrobe staple that transitions from coffee shops to clubs.",
+    "images": [
+      "/images/products/luxury-sneaker-main.webp",
+      "/images/products/luxury-sneaker-detail.webp",
+      "/images/products/luxury-sneaker-side.webp"
+    ],
+    "model3D": "/models/products/luxury-sneaker.glb",
+    "colors": [
+      "Cream/Gold",
+      "Black/Silver",
+      "Navy/White"
+    ],
+    "sizes": [
+      "US 6",
+      "US 7",
+      "US 8",
+      "US 9",
+      "US 10",
+      "US 11",
+      "US 12"
+    ],
+    "tags": [
+      "sneakers",
+      "fashion",
+      "luxury",
+      "leather",
+      "streetwear",
+      "limited"
+    ],
+    "aiRecommendationTags": [
+      "fashion",
+      "luxury",
+      "sneakers",
+      "streetwear",
+      "lifestyle"
+    ],
+    "embeddingHints": "luxury designer sneakers leather fashion streetwear style premium",
+    "reviews": [
+      {
+        "user": "StyleIcon",
+        "rating": 5,
+        "comment": "Heads turn everywhere I go. The leather quality is outstanding.",
+        "date": "2025-04-05"
+      }
+    ],
+    "relatedProductIds": [
+      "P1005",
+      "P1007"
+    ],
+    "image": "/static/images/shoe2.jpg"
+  },
+  {
+    "productId": "P1007",
+    "glb_url": "/static/models/sofa.glb",
+    "category": "Furniture",
+    "subcategory": "Living Room",
+    "price": 2499,
+    "discountPrice": 1999,
+    "rating": 4.5,
+    "reviewCount": 134,
+    "stock": 22,
+    "description": "Redefine your living space with the Moderno Sectional Sofa. Features a hardwood kiln-dried frame, high-resilience foam cushions (ILD 35), premium top-grain leather or performance fabric options, and stainless steel legs. Modular L-shape configuration accommodates 5\u20137 people. Assembly required. Ships in 4\u20136 weeks.",
+    "images": [
+      "/images/products/sofa-main.webp",
+      "/images/products/sofa-angle.webp",
+      "/images/products/sofa-detail.webp",
+      "/images/products/sofa-room.webp"
+    ],
+    "model3D": "/models/products/sectional-sofa.glb",
+    "colors": [
+      "Slate Gray",
+      "Warm Beige",
+      "Navy Blue",
+      "Charcoal"
+    ],
+    "dimensions": "L: 280cm \u00d7 W: 200cm \u00d7 H: 85cm",
+    "tags": [
+      "sofa",
+      "furniture",
+      "living-room",
+      "sectional",
+      "leather",
+      "modern"
+    ],
+    "aiRecommendationTags": [
+      "furniture",
+      "home-decor",
+      "living-room",
+      "sofa",
+      "modern"
+    ],
+    "embeddingHints": "sectional sofa living room furniture modern leather comfortable large",
+    "reviews": [
+      {
+        "user": "HomeDesigner",
+        "rating": 5,
+        "comment": "Absolutely stunning piece. The leather quality is incredible and it's incredibly comfortable.",
+        "date": "2025-02-20"
+      },
+      {
+        "user": "NewHomeowner",
+        "rating": 4,
+        "comment": "Beautiful sofa, took 5 weeks to arrive but completely worth the wait.",
+        "date": "2025-01-30"
+      }
+    ],
+    "relatedProductIds": [
+      "P1008",
+      "P1015"
+    ],
+    "image": "/static/images/sofa.jpg"
+  },
+  {
+    "productId": "P1008",
+    "glb_url": "/static/models/lamp.glb",
+    "category": "Furniture",
+    "subcategory": "Lighting",
+    "price": 349,
+    "discountPrice": 299,
+    "rating": 4.6,
+    "reviewCount": 89,
+    "stock": 67,
+    "description": "The ArcLight Floor Lamp combines Scandinavian minimalism with smart home capability. Adjustable arc arm (reach up to 200cm), marble base for stability, integrated LED (2700K\u20136500K color temperature), dimmable via touch control or Alexa/Google Home voice commands, with USB-C pass-through port. Perfect statement piece for reading nooks or living rooms.",
+    "images": [
+      "/images/products/floor-lamp-main.webp",
+      "/images/products/floor-lamp-detail.webp",
+      "/images/products/floor-lamp-base.webp"
+    ],
+    "model3D": "/models/products/arc-lamp.glb",
+    "colors": [
+      "Brushed Gold",
+      "Matte Black",
+      "Chrome"
+    ],
+    "tags": [
+      "lamp",
+      "furniture",
+      "lighting",
+      "smart-home",
+      "minimalist",
+      "nordic"
+    ],
+    "aiRecommendationTags": [
+      "home-decor",
+      "lighting",
+      "smart-home",
+      "minimalist",
+      "furniture"
+    ],
+    "embeddingHints": "floor lamp arc minimalist smart home lighting living room bedroom decor",
+    "reviews": [
+      {
+        "user": "InteriorDesignFan",
+        "rating": 5,
+        "comment": "Exactly what my living room needed. The marble base is heavy and sturdy.",
+        "date": "2025-03-10"
+      }
+    ],
+    "relatedProductIds": [
+      "P1007",
+      "P1015"
+    ],
+    "image": "/static/images/lamp.jpg"
+  },
+  {
+    "productId": "P1009",
+    "glb_url": "/static/models/headphones.glb",
+    "category": "Electronics",
+    "subcategory": "Gaming Accessories",
+    "price": 199,
+    "discountPrice": 159,
+    "rating": 4.7,
+    "reviewCount": 678,
+    "stock": 156,
+    "description": "Immersive 3D audio for gaming and music. The SoundWave Pro 7 features 50mm neodymium drivers, hybrid active noise cancellation (ANC), 7.1 virtual surround sound, detachable boom microphone with noise suppression, and 30-hour battery life. Works with PS5, Xbox, PC, and mobile. Foldable design with memory foam ear cushions for marathon sessions.",
+    "images": [
+      "/images/products/headphones-main.webp",
+      "/images/products/headphones-side.webp",
+      "/images/products/headphones-mic.webp",
+      "/images/products/headphones-folded.webp"
+    ],
+    "model3D": "/models/products/gaming-headphones.glb",
+    "colors": [
+      "Stealth Black",
+      "Arctic White",
+      "Cobalt Blue"
+    ],
+    "specs": {
+      "drivers": "50mm neodymium",
+      "frequencyResponse": "20Hz\u201320kHz",
+      "impedance": "32\u03a9",
+      "battery": "30hr (ANC on)",
+      "connectivity": "Bluetooth 5.3 + USB-C + 3.5mm",
+      "weight": "310g"
+    },
+    "tags": [
+      "headphones",
+      "gaming",
+      "wireless",
+      "anc",
+      "7.1-surround",
+      "ps5",
+      "xbox"
+    ],
+    "aiRecommendationTags": [
+      "gaming",
+      "audio",
+      "headphones",
+      "wireless",
+      "ANC"
+    ],
+    "embeddingHints": "wireless gaming headphones noise cancelling surround sound microphone PS5 Xbox PC",
+    "reviews": [
+      {
+        "user": "FPSGamer",
+        "rating": 5,
+        "comment": "Pinpoint audio precision in FPS games. The mic clarity is broadcast quality.",
+        "date": "2025-04-08"
+      },
+      {
+        "user": "MusicLover42",
+        "rating": 5,
+        "comment": "ANC is on par with Sony WH-1000XM5. Incredible at this price.",
+        "date": "2025-03-25"
+      }
+    ],
+    "relatedProductIds": [
+      "P1001",
+      "P1010",
+      "P1011"
+    ],
+    "image": "/static/images/headphones.jpg"
+  },
+  {
+    "productId": "P1010",
+    "glb_url": "/static/models/keyboard.glb",
+    "category": "Electronics",
+    "subcategory": "Gaming Accessories",
+    "price": 149,
+    "discountPrice": 119,
+    "rating": 4.5,
+    "reviewCount": 342,
+    "stock": 203,
+    "description": "Built for precision, the NexPad Mechanical Keyboard features Gateron G Pro 3.0 switches (Yellow, Red, or Brown), hot-swappable PCB for zero-downtime switch changes, per-key RGB with 16.8M colors, aluminum alloy frame, N-key rollover for competitive gaming, and USB-C with detachable braided cable. 2-year warranty included.",
+    "images": [
+      "/images/products/keyboard-main.webp",
+      "/images/products/keyboard-rgb.webp",
+      "/images/products/keyboard-side.webp"
+    ],
+    "model3D": "/models/products/mechanical-keyboard.glb",
+    "colors": [
+      "Black",
+      "White",
+      "Gray"
+    ],
+    "specs": {
+      "switches": "Gateron G Pro 3.0 (Yellow/Red/Brown)",
+      "layout": "TKL 87-key",
+      "rgb": "Per-key 16.8M colors",
+      "connectivity": "USB-C + Bluetooth 5.1 + 2.4GHz",
+      "battery": "4000mAh (wireless mode)",
+      "frame": "Aluminum alloy"
+    },
+    "tags": [
+      "keyboard",
+      "mechanical",
+      "gaming",
+      "rgb",
+      "hot-swap",
+      "tkl"
+    ],
+    "aiRecommendationTags": [
+      "gaming",
+      "peripherals",
+      "keyboard",
+      "mechanical",
+      "RGB"
+    ],
+    "embeddingHints": "mechanical keyboard gaming RGB hot-swap switches aluminum TKL wireless",
+    "reviews": [
+      {
+        "user": "TypeRacer",
+        "rating": 5,
+        "comment": "Best typing feel I've ever experienced. The hot-swap feature is a must-have.",
+        "date": "2025-03-28"
+      }
+    ],
+    "relatedProductIds": [
+      "P1001",
+      "P1009",
+      "P1011"
+    ],
+    "image": "/static/images/keyboard.jpg"
+  },
+  {
+    "productId": "P1011",
+    "glb_url": "/static/models/mouse.glb",
+    "category": "Electronics",
+    "subcategory": "Gaming Accessories",
+    "price": 89,
+    "discountPrice": 69,
+    "rating": 4.6,
+    "reviewCount": 521,
+    "stock": 318,
+    "description": "The ProGrip X900 is engineered for competitive gaming. 36K DPI optical sensor with 1% tracking error, 8 programmable buttons, onboard 512KB memory for 5 profiles, 80-hour battery with 15-minute quick charge, and 2.4GHz wireless with 1ms polling rate. Ambidextrous design fits all grip styles. Custom RGB diffuser for personalized aesthetics.",
+    "images": [
+      "/images/products/mouse-main.webp",
+      "/images/products/mouse-side.webp",
+      "/images/products/mouse-rgb.webp"
+    ],
+    "model3D": "/models/products/gaming-mouse.glb",
+    "colors": [
+      "Matte Black",
+      "Pure White"
+    ],
+    "specs": {
+      "sensor": "PMW3395 36K DPI",
+      "buttons": "8 programmable",
+      "battery": "80hr (RGB off)",
+      "connectivity": "2.4GHz / USB-C",
+      "weight": "68g",
+      "pollingRate": "1000Hz"
+    },
+    "tags": [
+      "mouse",
+      "gaming",
+      "wireless",
+      "rgb",
+      "esports",
+      "fps"
+    ],
+    "aiRecommendationTags": [
+      "gaming",
+      "peripherals",
+      "mouse",
+      "esports",
+      "FPS"
+    ],
+    "embeddingHints": "gaming mouse wireless optical sensor RGB ergonomic FPS esports competitive",
+    "reviews": [
+      {
+        "user": "ProPlayer_99",
+        "rating": 5,
+        "comment": "Zero latency, perfect sensor. My aim improved immediately.",
+        "date": "2025-04-02"
+      }
+    ],
+    "relatedProductIds": [
+      "P1009",
+      "P1010",
+      "P1001"
+    ],
+    "image": "/static/images/mouse.jpg"
+  },
+  {
+    "productId": "P1012",
+    "glb_url": "/static/models/watch1.glb",
+    "category": "Watches",
+    "subcategory": "Luxury Watches",
+    "price": 899,
+    "discountPrice": 799,
+    "rating": 4.9,
+    "reviewCount": 76,
+    "stock": 18,
+    "description": "Swiss-made horological excellence. The Chronos Elite houses a proprietary 31-jewel automatic movement with 70-hour power reserve, 42mm 316L surgical stainless steel case, sapphire crystal glass with AR coating, 200m water resistance, and genuine alligator leather strap with deployment clasp. Each piece is individually numbered and comes with certificate of authenticity.",
+    "images": [
+      "/images/products/watch-main.webp",
+      "/images/products/watch-detail.webp",
+      "/images/products/watch-clasp.webp",
+      "/images/products/watch-caseback.webp"
+    ],
+    "model3D": "/models/products/luxury-watch.glb",
+    "colors": [
+      "Silver/Blue Dial",
+      "Gold/Black Dial",
+      "Steel/White Dial"
+    ],
+    "specs": {
+      "movement": "Automatic, 31 jewels",
+      "powerReserve": "70 hours",
+      "caseSize": "42mm",
+      "caseMaterial": "316L Stainless Steel",
+      "crystal": "Sapphire with AR coating",
+      "waterResistance": "200m / 20ATM",
+      "strap": "Genuine alligator leather"
+    },
+    "tags": [
+      "watch",
+      "luxury",
+      "automatic",
+      "swiss",
+      "sapphire",
+      "leather",
+      "gift"
+    ],
+    "aiRecommendationTags": [
+      "luxury",
+      "watches",
+      "gift",
+      "automatic",
+      "swiss-made",
+      "premium"
+    ],
+    "embeddingHints": "luxury automatic watch Swiss mechanical sapphire crystal elegant dress formal gift",
+    "reviews": [
+      {
+        "user": "WatchCollector",
+        "rating": 5,
+        "comment": "Exceptional finishing. The movement visible through the caseback is mesmerizing.",
+        "date": "2025-02-28"
+      },
+      {
+        "user": "GiftBuyer2025",
+        "rating": 5,
+        "comment": "Bought as a anniversary gift. My partner was speechless. Packaging is equally luxurious.",
+        "date": "2025-03-14"
+      }
+    ],
+    "relatedProductIds": [
+      "P1013",
+      "P1006"
+    ],
+    "image": "/static/images/watch1.jpg"
+  },
+  {
+    "productId": "P1013",
+     "glb_url": "/static/models/watch2.glb",
+    "category": "Watches",
+    "subcategory": "Smartwatches",
+    "price": 349,
+    "discountPrice": 299,
+    "rating": 4.5,
+    "reviewCount": 289,
+    "stock": 142,
+    "description": "Your ultimate health and fitness companion. The FitBand Ultra Pro tracks 90+ workout modes, continuous ECG + SpO2 monitoring, sleep stages with REM tracking, stress management, and blood glucose trend estimation. 2.0-inch AMOLED always-on display, 14-day battery life, LTE connectivity for standalone calls, NFC payments, and IPX8 waterproof rating.",
+    "images": [
+      "/images/products/smartwatch-main.webp",
+      "/images/products/smartwatch-health.webp",
+      "/images/products/smartwatch-sport.webp"
+    ],
+    "model3D": "/models/products/smartwatch.glb",
+    "colors": [
+      "Midnight Black",
+      "Rose Gold",
+      "Arctic Silver",
+      "Forest Green"
+    ],
+    "specs": {
+      "display": "2.0\" AMOLED AOD",
+      "battery": "14 days (normal), 3 days (LTE)",
+      "health": "ECG, SpO2, Blood Pressure, Temperature",
+      "gps": "Dual-band GPS + GLONASS",
+      "connectivity": "LTE + Bluetooth 5.3 + NFC",
+      "waterResistance": "IPX8 (50m)"
+    },
+    "tags": [
+      "smartwatch",
+      "fitness",
+      "health",
+      "ecg",
+      "lte",
+      "gps",
+      "nfc"
+    ],
+    "aiRecommendationTags": [
+      "fitness",
+      "health",
+      "smartwatch",
+      "wearable",
+      "sports",
+      "tracking"
+    ],
+    "embeddingHints": "smartwatch fitness health tracker ECG heart rate GPS NFC payments LTE",
+    "reviews": [
+      {
+        "user": "FitnessFreak",
+        "rating": 5,
+        "comment": "Most accurate health tracking I've seen on any wearable. ECG readings match my doctor's device.",
+        "date": "2025-04-01"
+      }
+    ],
+    "relatedProductIds": [
+      "P1012",
+      "P1005"
+    ],
+    "image": "/static/images/watch2.jpg"
+  },
+  {
+    "productId": "P1014",
+    "glb_url": "/static/models/airpurifier.glb",
+    "category": "Home Appliances",
+    "subcategory": "Air Treatment",
+    "price": 449,
+    "discountPrice": 379,
+    "rating": 4.7,
+    "reviewCount": 231,
+    "stock": 54,
+    "description": "Breathe cleaner air with the AeroFrost Pro. Features a 6-stage filtration system including H14 HEPA (99.97% particle removal), activated carbon filter for VOCs and odors, UV-C sterilization, and ionizer. Smart CADR of 600m\u00b3/h covers rooms up to 70m\u00b2. Auto mode with built-in PM2.5/CO2 sensor, whisper-quiet 22dB sleep mode, and Wi-Fi app control. Filter replacement reminder included.",
+    "images": [
+      "/images/products/air-purifier-main.webp",
+      "/images/products/air-purifier-filter.webp",
+      "/images/products/air-purifier-display.webp"
+    ],
+    "model3D": "/models/products/air-purifier.glb",
+    "colors": [
+      "Pearl White",
+      "Graphite Black"
+    ],
+    "specs": {
+      "cadr": "600 m\u00b3/h",
+      "coverage": "Up to 70 m\u00b2",
+      "filtration": "6-stage H14 HEPA + Carbon + UV-C",
+      "noiseLevel": "22\u201352 dB",
+      "powerConsumption": "60W max",
+      "connectivity": "Wi-Fi + App + Voice Control"
+    },
+    "tags": [
+      "air-purifier",
+      "hepa",
+      "home-appliance",
+      "smart-home",
+      "allergen",
+      "air-quality"
+    ],
+    "aiRecommendationTags": [
+      "home-appliance",
+      "health",
+      "air-quality",
+      "smart-home",
+      "allergen"
+    ],
+    "embeddingHints": "air purifier HEPA filter smart home air quality allergen dust pollen bedroom",
+    "reviews": [
+      {
+        "user": "AllergyMom",
+        "rating": 5,
+        "comment": "My daughter's asthma symptoms reduced dramatically after one week. Life changing.",
+        "date": "2025-03-05"
+      }
+    ],
+    "relatedProductIds": [
+      "P1015",
+      "P1008"
+    ],
+    "image": "/static/images/airpurifier.jpg"
+  },
+  {
+    "productId": "P1015",
+    "glb_url": "/static/models/coffee.glb",
+    "category": "Home Appliances",
+    "subcategory": "Kitchen",
+    "price": 599,
+    "discountPrice": 499,
+    "rating": 4.8,
+    "reviewCount": 467,
+    "stock": 89,
+    "description": "Caf\u00e9-quality espresso at home. The BrewMaster Pro features a 20-bar Italian pump, PID temperature control (\u00b10.5\u00b0C accuracy), built-in conical burr grinder with 30 grind settings, 2.5L water tank with water filter, steam wand for microfoam milk texturing, and 7-inch touchscreen with 30+ beverage presets. Customizable brew recipes saved to user profiles.",
+    "images": [
+      "/images/products/coffee-machine-main.webp",
+      "/images/products/coffee-machine-steam.webp",
+      "/images/products/coffee-machine-screen.webp",
+      "/images/products/coffee-machine-grinder.webp"
+    ],
+    "model3D": "/models/products/coffee-machine.glb",
+    "colors": [
+      "Brushed Steel",
+      "Matte Black",
+      "Cream White"
+    ],
+    "specs": {
+      "pump": "20-bar Italian pump",
+      "grinder": "Conical burr, 30 settings",
+      "temperature": "PID \u00b10.5\u00b0C",
+      "waterTank": "2.5L with filter",
+      "boiler": "Dual thermoblock",
+      "display": "7-inch touchscreen"
+    },
+    "tags": [
+      "coffee",
+      "espresso",
+      "kitchen",
+      "home-appliance",
+      "barista",
+      "grinder"
+    ],
+    "aiRecommendationTags": [
+      "coffee",
+      "kitchen",
+      "home-appliance",
+      "barista",
+      "espresso",
+      "gift"
+    ],
+    "embeddingHints": "espresso coffee machine barista home kitchen grinder steam wand touchscreen",
+    "reviews": [
+      {
+        "user": "CoffeeSnob",
+        "rating": 5,
+        "comment": "Replaced my $2000 Breville. The temperature control is perfection.",
+        "date": "2025-04-07"
+      },
+      {
+        "user": "HomeCafe",
+        "rating": 5,
+        "comment": "Easiest to dial in of any machine I've owned. The guided mode is brilliant for beginners.",
+        "date": "2025-03-18"
+      }
+    ],
+    "relatedProductIds": [
+      "P1008",
+      "P1014"
+    ],
+    "image": "/static/images/coffee.jpg"
+  },
+  {
+    "productId": "P1016",
+    "glb_url": "/static/models/serum.glb",
+    "category": "Beauty",
+    "subcategory": "Skincare",
+    "price": 79,
+    "discountPrice": 59,
+    "rating": 4.6,
+    "reviewCount": 834,
+    "stock": 412,
+    "description": "Clinical-strength brightening serum with 20% stabilized L-Ascorbic Acid, 2% Ferulic Acid, 1% Vitamin E, and Hyaluronic Acid complex. Reduces dark spots 47% in 8 weeks (clinical study). Lightweight serum texture absorbs instantly, fragrance-free, dermatologist tested, non-comedogenic. Packaged in UV-protected amber glass to preserve potency.",
+    "images": [
+      "/images/products/serum-main.webp",
+      "/images/products/serum-texture.webp",
+      "/images/products/serum-result.webp"
+    ],
+    "model3D": "/models/products/serum-bottle.glb",
+    "sizes": [
+      "30ml",
+      "50ml"
+    ],
+    "skinTypes": [
+      "All skin types",
+      "Especially oily and combination"
+    ],
+    "tags": [
+      "skincare",
+      "vitamin-c",
+      "serum",
+      "brightening",
+      "anti-aging",
+      "beauty"
+    ],
+    "aiRecommendationTags": [
+      "skincare",
+      "beauty",
+      "anti-aging",
+      "brightening",
+      "serum"
+    ],
+    "embeddingHints": "vitamin C serum brightening skincare anti-aging dark spots skin glow beauty",
+    "reviews": [
+      {
+        "user": "SkincareJunkie",
+        "rating": 5,
+        "comment": "My hyperpigmentation is 80% gone after 6 weeks. Nothing has worked this well.",
+        "date": "2025-03-22"
+      },
+      {
+        "user": "GlowUp2025",
+        "rating": 5,
+        "comment": "Lightweight, no stickiness, and my skin is noticeably brighter. Repurchasing for life.",
+        "date": "2025-02-14"
+      }
+    ],
+    "relatedProductIds": [
+      "P1017",
+      "P1018"
+    ],
+    "image": "/static/images/serum.jpg"
+  },
+  {
+    "productId": "P1017",
+    "glb_url": "/static/models/lipstick.glb",
+    "category": "Beauty",
+    "subcategory": "Makeup",
+    "price": 49,
+    "discountPrice": 39,
+    "rating": 4.4,
+    "reviewCount": 612,
+    "stock": 285,
+    "description": "12-piece luxury matte lipstick collection curated across four seasonal color stories: Nude Essentials, Bold Classics, Berry Season, and Coral Sunset. Formula enriched with Shea Butter and Vitamin E for moisturizing comfort. 12-hour wear, transfer-resistant, cruelty-free, and vegan. Presented in magnetic gift box \u2014 perfect for gifting.",
+    "images": [
+      "/images/products/lipstick-set-main.webp",
+      "/images/products/lipstick-set-open.webp",
+      "/images/products/lipstick-swatches.webp"
+    ],
+    "model3D": "/models/products/lipstick-set.glb",
+    "tags": [
+      "lipstick",
+      "makeup",
+      "beauty",
+      "vegan",
+      "gift",
+      "matte",
+      "cruelty-free"
+    ],
+    "aiRecommendationTags": [
+      "makeup",
+      "beauty",
+      "gift",
+      "lipstick",
+      "vegan"
+    ],
+    "embeddingHints": "lipstick matte makeup set collection vegan cruelty-free gift beauty cosmetics",
+    "reviews": [
+      {
+        "user": "MakeupArtist",
+        "rating": 5,
+        "comment": "Long-lasting and deeply pigmented. The nude range is especially well-curated.",
+        "date": "2025-04-03"
+      }
+    ],
+    "relatedProductIds": [
+      "P1016",
+      "P1018"
+    ],
+    "image": "/static/images/lipstick.jpg"
+  },
+  {
+    "productId": "P1018",
+    "glb_url": "/static/models/perfume.glb",
+    "category": "Beauty",
+    "subcategory": "Fragrance",
+    "price": 129,
+    "discountPrice": 109,
+    "rating": 4.7,
+    "reviewCount": 198,
+    "stock": 73,
+    "description": "A bold, sophisticated fragrance for the modern individual. Oud Noir opens with bergamot and black pepper top notes, transitions through a heart of rose and saffron, and settles on a deep base of agarwood (oud), sandalwood, and amber. 100ml Eau de Parfum with 12\u201315 hour sillage. Refillable bottle crafted from recycled glass with gold-plated atomizer.",
+    "images": [
+      "/images/products/perfume-main.webp",
+      "/images/products/perfume-detail.webp",
+      "/images/products/perfume-box.webp"
+    ],
+    "model3D": "/models/products/perfume-bottle.glb",
+    "sizes": [
+      "50ml",
+      "100ml"
+    ],
+    "tags": [
+      "perfume",
+      "fragrance",
+      "oud",
+      "luxury",
+      "beauty",
+      "gift",
+      "long-lasting"
+    ],
+    "aiRecommendationTags": [
+      "fragrance",
+      "luxury",
+      "beauty",
+      "gift",
+      "perfume"
+    ],
+    "embeddingHints": "luxury perfume fragrance oud sandalwood long-lasting gift elegant eau de parfum",
+    "reviews": [
+      {
+        "user": "FragranceConnoisseur",
+        "rating": 5,
+        "comment": "Projection lasts all day. Oud quality rivals niche houses at triple the price.",
+        "date": "2025-03-17"
+      }
+    ],
+    "relatedProductIds": [
+      "P1016",
+      "P1017",
+      "P1012"
+    ],
+    "image": "/static/images/perfume.jpg"
+  },
+  {
+    "productId": "P1019",
+    "glb_url": "/static/models/desk.glb",
+    "category": "Furniture",
+    "subcategory": "Office",
+    "price": 799,
+    "discountPrice": 649,
+    "rating": 4.6,
+    "reviewCount": 156,
+    "stock": 34,
+    "description": "Transform your workspace with the ErgoDesk Pro. Dual-motor electric lift system with 5 memory presets, height range 60\u2013130cm, anti-collision detection, and whisper-quiet 45dB motor. 180\u00d780cm bamboo desktop surface, steel frame rated for 120kg, integrated cable management, USB-A + USB-C charging hub, and 5-year motor warranty. Assembly in under 20 minutes.",
+    "images": [
+      "/images/products/standing-desk-main.webp",
+      "/images/products/standing-desk-controls.webp",
+      "/images/products/standing-desk-setup.webp"
+    ],
+    "model3D": "/models/products/standing-desk.glb",
+    "colors": [
+      "Bamboo/Black Frame",
+      "White/White Frame",
+      "Walnut/Silver Frame"
+    ],
+    "specs": {
+      "heightRange": "60\u2013130cm",
+      "surface": "180\u00d780cm bamboo",
+      "weightCapacity": "120kg",
+      "motorNoise": "45dB",
+      "memoryPresets": "5",
+      "warranty": "5 years motor"
+    },
+    "tags": [
+      "desk",
+      "standing-desk",
+      "office",
+      "ergonomic",
+      "electric",
+      "work-from-home"
+    ],
+    "aiRecommendationTags": [
+      "office",
+      "ergonomic",
+      "home-office",
+      "furniture",
+      "work-from-home",
+      "health"
+    ],
+    "embeddingHints": "standing desk ergonomic office home work height adjustable electric bamboo",
+    "reviews": [
+      {
+        "user": "RemoteWorker2025",
+        "rating": 5,
+        "comment": "Back pain gone after 2 weeks. Should have bought this years ago.",
+        "date": "2025-03-28"
+      }
+    ],
+    "relatedProductIds": [
+      "P1002",
+      "P1008",
+      "P1010"
+    ],
+    "image": "/static/images/desk.jpg"
+  },
+  {
+    "productId": "P1020",
+    "glb_url": "/static/models/skateboard.glb",
+    "category": "Electronics",
+    "subcategory": "Personal Transport",
+    "price": 699,
+    "discountPrice": 599,
+    "rating": 4.5,
+    "reviewCount": 94,
+    "stock": 28,
+    "description": "Redefine your commute. The Volta R3 electric skateboard features dual 1500W hub motors delivering 45km/h top speed and 30km range per charge. Bamboo-fiberglass deck with concave flex, regenerative braking, swappable 288Wh battery, and Bluetooth remote with 4 ride modes (Eco, Sport, Turbo, Cruise). App-enabled ride statistics, LED underglow, and IP55 water resistance.",
+    "images": [
+      "/images/products/skateboard-main.webp",
+      "/images/products/skateboard-deck.webp",
+      "/images/products/skateboard-remote.webp"
+    ],
+    "model3D": "/models/products/electric-skateboard.glb",
+    "colors": [
+      "Carbon Black",
+      "Bamboo Natural",
+      "Electric Orange"
+    ],
+    "specs": {
+      "motors": "Dual 1500W hub motors",
+      "topSpeed": "45 km/h",
+      "range": "30 km",
+      "battery": "288Wh swappable",
+      "rideModes": "4 (Eco/Sport/Turbo/Cruise)",
+      "waterResistance": "IP55",
+      "maxLoad": "120kg"
+    },
+    "tags": [
+      "skateboard",
+      "electric",
+      "commute",
+      "transport",
+      "outdoor",
+      "eco",
+      "fast"
+    ],
+    "aiRecommendationTags": [
+      "transport",
+      "outdoor",
+      "eco-friendly",
+      "commute",
+      "electric",
+      "adventure"
+    ],
+    "embeddingHints": "electric skateboard commute transport outdoor eco fast fun adventure urban",
+    "reviews": [
+      {
+        "user": "UrbanRider",
+        "rating": 5,
+        "comment": "Replaced my car for city commuting. 30km range is more than enough for my daily route.",
+        "date": "2025-03-19"
+      }
+    ],
+    "relatedProductIds": [
+      "P1005",
+      "P1013"
+    ],
+    "image": "/static/images/skateboard.jpg"
+  }
+]
