@@ -1,5 +1,3 @@
 .env  
 __pycache__/  
 *.pyc 
-app/static/models/ 
-app/static/models/ 
